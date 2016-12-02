@@ -1,27 +1,14 @@
 # README #
 
-All assignment/task given by companies will be added here
+Quiz app
 
 ### What is this repository for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+ Demo of quiz application
 
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
+* Run bower install in the root folder
+* That's it. Project is ready to use
 
 ### Who do I talk to? ###
 
