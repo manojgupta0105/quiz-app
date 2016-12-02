@@ -1,0 +1,26 @@
+{
+  "name": "bower",
+  "authors": [
+    "Manoj Gupta <manojgupta0105@gmail.com>"
+  ],
+  "description": "Components list required for project",
+  "main": "",
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.9",
+    "angular-route": "^1.5.9",
+    "angular-animate": "^1.5.9",
+    "angular-bootstrap": "^2.3.0",
+    "jquery": "^3.1.1",
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0"
+  }
+}

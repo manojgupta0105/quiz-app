@@ -1,0 +1,70 @@
+.outer-box {
+  width: 100%;
+  /*background: #855223;*/
+  background-color: #b06a00;
+  background-image: url("../assets/wood-pattern.png");
+  padding: 25px; }
+  .outer-box .inner-box {
+    background: #0c5541;
+    margin: 0 auto;
+    color: #fff;
+    padding: 50px; }
+    .outer-box .inner-box .quiz-box {
+      margin: 0 auto;
+      width: 100%;
+      padding: 50px; }
+      .outer-box .inner-box .quiz-box .quiz-title {
+        font-size: 18px;
+        font-weight: bold; }
+      .outer-box .inner-box .quiz-box .quiz-question span {
+        font-weight: bold;
+        font-size: 16px; }
+      .outer-box .inner-box .quiz-box .button-wrapper {
+        width: 80%;
+        padding-top: 20px; }
+        .outer-box .inner-box .quiz-box .button-wrapper .prev-button {
+          text-align: left; }
+        .outer-box .inner-box .quiz-box .button-wrapper .next-button {
+          text-align: right; }
+        .outer-box .inner-box .quiz-box .button-wrapper .submit-button {
+          text-align: center; }
+      .outer-box .inner-box .quiz-box p .quiz-option {
+        margin-right: 10px; }
+      .outer-box .inner-box .quiz-box p .quiz-option-text {
+        cursor: pointer; }
+    .outer-box .inner-box .correct-icon {
+      color: green; }
+    .outer-box .inner-box .incorrect-icon {
+      color: red; }
+    .outer-box .inner-box .quiz-summary-title {
+      text-align: center; }
+    .outer-box .inner-box .quiz-summary {
+      width: 50%;
+      margin: 0 auto; }
+    .outer-box .inner-box table tbody tr:hover {
+      color: #000;
+      background-color: #f5f5f5; }
+
+.my-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background-color: grey;
+  opacity: .5; }
+  .my-loader .loader-image {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -32px;
+    /* -1 * image width / 2 */
+    margin-top: -32px;
+    /* -1 * image height / 2 */
+    display: block; }
+
+@media (max-width: 450px) {
+  .quiz-summary {
+    width: 80% !important;
+    margin: 0 auto; } }

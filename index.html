@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JiffleNow task</title>
+	<link rel="stylesheet" type="text/css" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="style/style.css">
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+	<script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
+	<script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+	<script type="text/javascript" src="./js/main.js"></script>
+</head>
+<body ng-app="mainApp">
+<div ng-controller="MainController">
+	<div class="my-loader" ng-if="isPageLoading">
+		<img class="loader-image" src="assets/ajax-loader.gif" alt="loading">
+	</div>
+	<div class="container">
+		<div class="outer-box">
+			<div class="inner-box">
+				<div class="quiz-box" ng-if="!showQuizresult">
+					<p class="quiz-title">Javascript Quiz {{currentQuestionNumber}} of {{questionData.length}}</p>
+
+					<p class="quiz-question"><span>Question:</span> {{selectedQuestion.text}}</p>
+					<p ng-repeat="option in selectedQuestion.options track by $index">
+						<input class="quiz-option" type="radio" name="questionOption" value="{{option}}" ng-model="selectedQuestion.userResponse"> <span class="quiz-option-text" ng-click="optionSelected(option)">{{option}}</span>
+					</p>
+
+					<div class="button-wrapper row" style="">
+						<div class="col-md-4 prev-button">
+							<button class="btn btn-primary btn-block" ng-click="prevQuestion()" ng-disabled="prevDisabled">Prev</button>
+						</div>
+						<div class="col-md-4 submit-button">
+							<button class="btn btn-primary btn-block" ng-click="submitQuiz()" ng-show="currentQuestionNumber == questionData.length">Submit Quiz</button>
+						</div>
+						<div class="col-md-4 next-button">
+							<button class="btn btn-primary btn-block" ng-click="nextQuestion()" ng-disabled="nextDisabled">Next</button>
+						</div>
+					</div>
+				</div>
+				<div ng-if="showQuizresult">
+					<h1 class="quiz-summary-title">Quiz Summary</h1>
+					<div class="quiz-summary">
+						<table class="table table-responsive table-bordered">
+							<tr>
+								<td>Total Questions</td>
+								<td>{{questionData.length}}</td>
+							</tr>
+							<tr>
+								<td>Total Time Taken</td>
+								<td>{{resultStatistics.totalTimeTaken}}</td>
+							</tr>
+							<tr>
+								<td>Questions Attempted</td>
+								<td>{{resultStatistics.questionAttempted}}</td>
+							</tr>
+							<tr>
+								<td>Questions Not Attempted</td>
+								<td>{{resultStatistics.questionNotAttempted}}</td>
+							</tr>
+							<tr>
+								<td>Correct Answer Given</td>
+								<td>{{resultStatistics.correctAnswer}}</td>
+							</tr>
+							<tr>
+								<td>Wrong Answer Given</td>
+								<td>{{resultStatistics.wrongAnswer}}</td>
+							</tr>
+						</table>
+					</div>
+					<div class="table-responsive">
+						<table class="table table-hover table-bordered">
+						  <thead class="thead-inverse">
+						    <tr>
+						      <th>Question Number</th>
+						      <th>Your Response</th>
+						      <th>Correct Response</th>
+						      <th>Status</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr ng-repeat="result in questionData track by $index">
+						      <th scope="row">{{$index+1}}</th>
+						      <td>{{result.userFormattedResponse > 0 ? result.userFormattedResponse : "" }}</td>
+						      <td>{{result.answer + 1}}</td>
+						      <td>
+						      	<i class="fa fa-check correct-icon" ng-if="result.answer == result.userFormattedResponse - 1"></i>
+						      	<i class="fa fa-times incorrect-icon" ng-if="result.answer != result.userFormattedResponse -1"></i>
+						      </td>
+						    </tr>
+						  </tbody>
+						</table>
+
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
